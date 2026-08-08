@@ -649,6 +649,14 @@ function Index() {
       <footer className="px-4 py-8 text-center text-sm font-bold text-muted-foreground">
         Biblioteca das Festas Express
       </footer>
+
+      <UpsellModal
+        open={upsellOpen}
+        onAccept={() => go(CHECKOUT_27_MAIS_UPSELL)}
+        onDecline={() => go(CHECKOUT_27)}
+        onClose={() => go(CHECKOUT_27)}
+      />
+
     </div>
   );
 }
