@@ -209,7 +209,9 @@ function Cta({
 function Index() {
   const [open, setOpen] = useState<number | null>(null);
   const [seconds, setSeconds] = useState(120);
+  const [upsellOpen, setUpsellOpen] = useState(false);
   const [basicUpsellOpen, setBasicUpsellOpen] = useState(false);
+
 
   useEffect(() => {
     const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
