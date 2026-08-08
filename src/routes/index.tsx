@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { UpsellModal } from "@/components/UpsellModal";
 
 const U = "https://centraldosmoldes.shop/uploads/";
+
+// Substitua pelos links reais de checkout.
+const CHECKOUT_27 = "#planos";
+const CHECKOUT_27_MAIS_UPSELL = "#planos";
+
 
 const avatars = [
   `${U}4abfa32c954188f02f103119b065cadd.jpg`,
