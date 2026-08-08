@@ -671,6 +671,14 @@ function Index() {
         onClose={() => go(CHECKOUT_27)}
       />
 
+      <BasicUpsellModal
+        open={basicUpsellOpen}
+        onAccept={() => go(CHECKOUT_10_MAIS_UPSELL)}
+        onDecline={() => go(CHECKOUT_10)}
+        onClose={() => go(CHECKOUT_10)}
+      />
+
+
     </div>
   );
 }
