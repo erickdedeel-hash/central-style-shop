@@ -1,12 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { UpsellModal } from "@/components/UpsellModal";
+import { BasicUpsellModal } from "@/components/BasicUpsellModal";
 
 const U = "https://centraldosmoldes.shop/uploads/";
 
 // Substitua pelos links reais de checkout.
 const CHECKOUT_27 = "#planos";
 const CHECKOUT_27_MAIS_UPSELL = "#planos";
+const CHECKOUT_10 = "#planos";
+const CHECKOUT_10_MAIS_UPSELL = "#planos";
 
 
 const avatars = [
@@ -207,6 +210,8 @@ function Index() {
   const [open, setOpen] = useState<number | null>(null);
   const [seconds, setSeconds] = useState(120);
   const [upsellOpen, setUpsellOpen] = useState(false);
+  const [basicUpsellOpen, setBasicUpsellOpen] = useState(false);
+
 
   useEffect(() => {
     const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
@@ -251,14 +256,21 @@ function Index() {
     [fireConfetti],
   );
 
+  const startBasicUpsell = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setBasicUpsellOpen(true);
+  }, []);
+
   const go = (url: string) => {
     setUpsellOpen(false);
+    setBasicUpsellOpen(false);
     if (url.startsWith("#")) {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth" });
     } else {
       window.location.href = url;
     }
   };
+
 
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
   const ss = String(seconds % 60).padStart(2, "0");
@@ -511,10 +523,12 @@ function Index() {
               </div>
               <a
                 href="#planos"
+                onClick={startBasicUpsell}
                 className="mt-6 block rounded-full border-2 border-primary px-6 py-3 text-center text-sm font-extrabold text-primary transition hover:bg-primary hover:text-primary-foreground"
               >
                 QUERO COMEÇAR AGORA
               </a>
+
             </div>
 
             {/* Premium */}
@@ -656,6 +670,14 @@ function Index() {
         onDecline={() => go(CHECKOUT_27)}
         onClose={() => go(CHECKOUT_27)}
       />
+
+      <BasicUpsellModal
+        open={basicUpsellOpen}
+        onAccept={() => go(CHECKOUT_10_MAIS_UPSELL)}
+        onDecline={() => go(CHECKOUT_10)}
+        onClose={() => go(CHECKOUT_10)}
+      />
+
 
     </div>
   );
