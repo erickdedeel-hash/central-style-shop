@@ -1,7 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { UpsellModal } from "@/components/UpsellModal";
 
 const U = "https://centraldosmoldes.shop/uploads/";
+
+// Substitua pelos links reais de checkout.
+const CHECKOUT_27 = "#planos";
+const CHECKOUT_27_MAIS_UPSELL = "#planos";
+
 
 const avatars = [
   `${U}4abfa32c954188f02f103119b065cadd.jpg`,
@@ -177,10 +183,19 @@ function Marquee() {
   );
 }
 
-function Cta({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function Cta({
+  children,
+  className = "",
+  onClick,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: (e: React.MouseEvent) => void;
+}) {
   return (
     <a
       href="#planos"
+      onClick={onClick}
       className={`inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-extrabold tracking-wide text-accent-foreground shadow-lg transition hover:brightness-105 sm:text-lg ${className}`}
     >
       {children}
@@ -191,14 +206,63 @@ function Cta({ children, className = "" }: { children: React.ReactNode; classNam
 function Index() {
   const [open, setOpen] = useState<number | null>(null);
   const [seconds, setSeconds] = useState(120);
+  const [upsellOpen, setUpsellOpen] = useState(false);
 
   useEffect(() => {
     const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
     return () => clearInterval(t);
   }, []);
 
+  const fireConfetti = useCallback(async () => {
+    const confetti = (await import("canvas-confetti")).default;
+    const colors = ["#FF3D9A", "#6E3BFF", "#FFC700", "#2E9BFF", "#16C15D", "#FF7A00"];
+    const mobile = window.innerWidth < 640;
+    const end = Date.now() + 3000;
+    confetti({
+      particleCount: mobile ? 90 : 160,
+      spread: 100,
+      startVelocity: 45,
+      origin: { x: 0.5, y: 0.55 },
+      colors,
+      disableForReducedMotion: true,
+    });
+    const tick = () => {
+      if (Date.now() > end) return;
+      confetti({
+        particleCount: mobile ? 8 : 14,
+        spread: 120,
+        startVelocity: 30,
+        ticks: 220,
+        origin: { x: Math.random(), y: -0.05 },
+        colors,
+        disableForReducedMotion: true,
+      });
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, []);
+
+  const startUpsell = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      void fireConfetti();
+      setUpsellOpen(true);
+    },
+    [fireConfetti],
+  );
+
+  const go = (url: string) => {
+    setUpsellOpen(false);
+    if (url.startsWith("#")) {
+      document.querySelector(url)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = url;
+    }
+  };
+
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
   const ss = String(seconds % 60).padStart(2, "0");
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -504,7 +568,10 @@ function Index() {
                 </div>
                 <div className="text-5xl font-black text-primary">R$27</div>
               </div>
-              <Cta className="mt-6 w-full">QUERO ACESSAR AGORA →</Cta>
+              <Cta className="mt-6 w-full" onClick={startUpsell}>
+                QUERO ACESSAR AGORA →
+              </Cta>
+
             </div>
           </div>
         </div>
@@ -582,6 +649,14 @@ function Index() {
       <footer className="px-4 py-8 text-center text-sm font-bold text-muted-foreground">
         Biblioteca das Festas Express
       </footer>
+
+      <UpsellModal
+        open={upsellOpen}
+        onAccept={() => go(CHECKOUT_27_MAIS_UPSELL)}
+        onDecline={() => go(CHECKOUT_27)}
+        onClose={() => go(CHECKOUT_27)}
+      />
+
     </div>
   );
 }
