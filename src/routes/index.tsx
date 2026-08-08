@@ -523,10 +523,12 @@ function Index() {
               </div>
               <a
                 href="#planos"
+                onClick={startBasicUpsell}
                 className="mt-6 block rounded-full border-2 border-primary px-6 py-3 text-center text-sm font-extrabold text-primary transition hover:bg-primary hover:text-primary-foreground"
               >
                 QUERO COMEÇAR AGORA
               </a>
+
             </div>
 
             {/* Premium */}
