@@ -256,14 +256,21 @@ function Index() {
     [fireConfetti],
   );
 
+  const startBasicUpsell = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setBasicUpsellOpen(true);
+  }, []);
+
   const go = (url: string) => {
     setUpsellOpen(false);
+    setBasicUpsellOpen(false);
     if (url.startsWith("#")) {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth" });
     } else {
       window.location.href = url;
     }
   };
+
 
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
   const ss = String(seconds % 60).padStart(2, "0");
