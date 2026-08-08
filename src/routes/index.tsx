@@ -568,7 +568,10 @@ function Index() {
                 </div>
                 <div className="text-5xl font-black text-primary">R$27</div>
               </div>
-              <Cta className="mt-6 w-full">QUERO ACESSAR AGORA →</Cta>
+              <Cta className="mt-6 w-full" onClick={startUpsell}>
+                QUERO ACESSAR AGORA →
+              </Cta>
+
             </div>
           </div>
         </div>
