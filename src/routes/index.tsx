@@ -189,15 +189,17 @@ function Marquee() {
 function Cta({
   children,
   className = "",
+  href = "#planos",
   onClick,
 }: {
   children: React.ReactNode;
   className?: string;
+  href?: string;
   onClick?: (e: React.MouseEvent) => void;
 }) {
   return (
     <a
-      href="#planos"
+      href={href}
       onClick={onClick}
       className={`inline-flex items-center justify-center rounded-full bg-accent px-8 py-4 text-base font-extrabold tracking-wide text-accent-foreground shadow-lg transition hover:brightness-105 sm:text-lg ${className}`}
     >
