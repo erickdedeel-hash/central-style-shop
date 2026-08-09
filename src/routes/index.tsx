@@ -5,11 +5,11 @@ import { BasicUpsellModal } from "@/components/BasicUpsellModal";
 
 const U = "https://centraldosmoldes.shop/uploads/";
 
-// Substitua pelos links reais de checkout.
-const CHECKOUT_27 = "#planos";
-const CHECKOUT_27_MAIS_UPSELL = "#planos";
-const CHECKOUT_10 = "#planos";
-const CHECKOUT_10_MAIS_UPSELL = "#planos";
+// Checkouts configurados
+const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/6rbe8at_1029014";
+const CHECKOUT_BASICO = "https://pay.cakto.com.br/32u4n8y_1028963";
+// Cole aqui o link do checkout do upsell de convites digitais (R$27 + R$19,90)
+const CHECKOUT_CONVITES_UPSELL = "";
 
 
 const avatars = [
@@ -584,7 +584,11 @@ function Index() {
                 </div>
                 <div className="text-5xl font-black text-primary">R$27</div>
               </div>
-              <Cta className="mt-6 w-full" href="https://pay.cakto.com.br/6rbe8at_1029014">
+              <Cta
+                className="mt-6 w-full"
+                href="https://pay.cakto.com.br/6rbe8at_1029014"
+                onClick={startUpsell}
+              >
                 QUERO ACESSAR AGORA →
               </Cta>
 
@@ -668,19 +672,22 @@ function Index() {
 
       <UpsellModal
         open={upsellOpen}
-        onAccept={() => go(CHECKOUT_27_MAIS_UPSELL)}
-        onDecline={() => go(CHECKOUT_27)}
-        onClose={() => go(CHECKOUT_27)}
+        onAccept={() => {
+          void fireConfetti();
+          setTimeout(() => go(CHECKOUT_CONVITES_UPSELL || CHECKOUT_PREMIUM), 450);
+        }}
+        onDecline={() => go(CHECKOUT_PREMIUM)}
+        onClose={() => go(CHECKOUT_PREMIUM)}
       />
 
       <BasicUpsellModal
         open={basicUpsellOpen}
         onAccept={() => {
           void fireConfetti();
-          setTimeout(() => go("https://pay.cakto.com.br/6rbe8at_1029014"), 450);
+          setTimeout(() => go(CHECKOUT_PREMIUM), 450);
         }}
-        onDecline={() => go("https://pay.cakto.com.br/32u4n8y_1028963")}
-        onClose={() => go("https://pay.cakto.com.br/32u4n8y_1028963")}
+        onDecline={() => go(CHECKOUT_BASICO)}
+        onClose={() => go(CHECKOUT_BASICO)}
       />
 
 
