@@ -675,10 +675,14 @@ function Index() {
 
       <BasicUpsellModal
         open={basicUpsellOpen}
-        onAccept={() => go(CHECKOUT_10_MAIS_UPSELL)}
-        onDecline={() => go(CHECKOUT_10)}
-        onClose={() => go(CHECKOUT_10)}
+        onAccept={() => {
+          void fireConfetti();
+          setTimeout(() => go("https://pay.cakto.com.br/6rbe8at_1029014"), 450);
+        }}
+        onDecline={() => go("https://pay.cakto.com.br/32u4n8y_1028963")}
+        onClose={() => go("https://pay.cakto.com.br/32u4n8y_1028963")}
       />
+
 
 
     </div>
