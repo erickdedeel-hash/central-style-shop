@@ -672,9 +672,12 @@ function Index() {
 
       <UpsellModal
         open={upsellOpen}
-        onAccept={() => go(CHECKOUT_27_MAIS_UPSELL)}
-        onDecline={() => go(CHECKOUT_27)}
-        onClose={() => go(CHECKOUT_27)}
+        onAccept={() => {
+          void fireConfetti();
+          setTimeout(() => go(CHECKOUT_CONVITES_UPSELL || CHECKOUT_PREMIUM), 450);
+        }}
+        onDecline={() => go(CHECKOUT_PREMIUM)}
+        onClose={() => go(CHECKOUT_PREMIUM)}
       />
 
       <BasicUpsellModal
