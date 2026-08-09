@@ -525,6 +525,7 @@ function Index() {
               </div>
               <a
                 href="https://pay.cakto.com.br/32u4n8y_1028963"
+                onClick={startBasicUpsell}
                 className="mt-6 block rounded-full border-2 border-primary px-6 py-3 text-center text-sm font-extrabold text-primary transition hover:bg-primary hover:text-primary-foreground"
               >
                 QUERO COMEÇAR AGORA
