@@ -584,7 +584,11 @@ function Index() {
                 </div>
                 <div className="text-5xl font-black text-primary">R$27</div>
               </div>
-              <Cta className="mt-6 w-full" href="https://pay.cakto.com.br/6rbe8at_1029014">
+              <Cta
+                className="mt-6 w-full"
+                href="https://pay.cakto.com.br/6rbe8at_1029014"
+                onClick={startUpsell}
+              >
                 QUERO ACESSAR AGORA →
               </Cta>
 
