@@ -30,11 +30,11 @@ type Props = {
 };
 
 export function BasicUpsellModal({ open, onAccept, onDecline, onClose }: Props) {
-  const [seconds, setSeconds] = useState(118);
+  const [seconds, setSeconds] = useState(300);
 
   useEffect(() => {
     if (!open) return;
-    setSeconds(118);
+    setSeconds(300);
     const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
