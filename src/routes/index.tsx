@@ -8,6 +8,7 @@ const U = "https://centraldosmoldes.shop/uploads/";
 // Checkouts configurados
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/6rbe8at_1029014";
 const CHECKOUT_BASICO = "https://pay.cakto.com.br/32u4n8y_1028963";
+const CHECKOUT_BASICO_UPSELL = "https://pay.cakto.com.br/547zr6h_1030011";
 // Cole aqui o link do checkout do upsell de convites digitais (R$27 + R$19,90)
 const CHECKOUT_CONVITES_UPSELL = "";
 
@@ -684,7 +685,7 @@ function Index() {
         open={basicUpsellOpen}
         onAccept={() => {
           void fireConfetti();
-          setTimeout(() => go(CHECKOUT_PREMIUM), 450);
+          setTimeout(() => go(CHECKOUT_BASICO_UPSELL), 450);
         }}
         onDecline={() => go(CHECKOUT_BASICO)}
         onClose={() => go(CHECKOUT_BASICO)}
