@@ -145,7 +145,7 @@ export function UpsellModal({ open, onAccept, onDecline, onClose }: Props) {
               minHeight: "48px",
             }}
           >
-            🎊 SIM, QUERO OS CONVITES!
+            🎉 SIM, QUERO OS CONVITES!
           </button>
           <button
             type="button"
