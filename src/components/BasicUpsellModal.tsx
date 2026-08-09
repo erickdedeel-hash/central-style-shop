@@ -30,11 +30,11 @@ type Props = {
 };
 
 export function BasicUpsellModal({ open, onAccept, onDecline, onClose }: Props) {
-  const [seconds, setSeconds] = useState(118);
+  const [seconds, setSeconds] = useState(300);
 
   useEffect(() => {
     if (!open) return;
-    setSeconds(118);
+    setSeconds(300);
     const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -58,7 +58,7 @@ export function BasicUpsellModal({ open, onAccept, onDecline, onClose }: Props) 
       style={{ background: "rgba(15,10,25,0.72)", animation: "fade-in 220ms ease-out both" }}
     >
       <div
-        className="relative w-full max-w-[370px] overflow-y-auto rounded-[22px] bg-white text-center"
+        className="relative w-[calc(100%-24px)] max-w-[390px] overflow-y-auto rounded-[22px] bg-white text-center"
         style={{
           maxHeight: "92vh",
           boxShadow: "0 40px 90px -20px rgba(0,0,0,0.6)",
@@ -71,10 +71,16 @@ export function BasicUpsellModal({ open, onAccept, onDecline, onClose }: Props) 
           style={{ background: "#FF7A00" }}
         >
           <span className="font-extrabold text-white" style={{ fontSize: "14.5px" }}>
-            ⏳ Oferta expira em{" "}
-            <strong style={{ fontWeight: 900 }}>
-              {mm}:{ss}
-            </strong>
+            {seconds > 0 ? (
+              <>
+                ⌛ Oferta expira em{" "}
+                <strong style={{ fontWeight: 900 }}>
+                  {mm}:{ss}
+                </strong>
+              </>
+            ) : (
+              <strong style={{ fontWeight: 900 }}>O tempo acabou!</strong>
+            )}
           </span>
           <button
             type="button"
