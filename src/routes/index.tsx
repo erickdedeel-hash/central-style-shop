@@ -685,7 +685,7 @@ function Index() {
         open={basicUpsellOpen}
         onAccept={() => {
           void fireConfetti();
-          setTimeout(() => go(CHECKOUT_PREMIUM), 450);
+          setTimeout(() => go(CHECKOUT_BASICO_UPSELL), 450);
         }}
         onDecline={() => go(CHECKOUT_BASICO)}
         onClose={() => go(CHECKOUT_BASICO)}
