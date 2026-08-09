@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { initMetaPixel } from "../lib/meta-pixel";
+
 
 function NotFoundComponent() {
   return (
@@ -118,6 +120,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  // Single Meta Pixel init + single PageView per real page load.
+  useEffect(() => {
+    initMetaPixel();
+  }, []);
+
 
   return (
     <QueryClientProvider client={queryClient}>

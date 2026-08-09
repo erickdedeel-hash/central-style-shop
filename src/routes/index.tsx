@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { UpsellModal } from "@/components/UpsellModal";
 import { BasicUpsellModal } from "@/components/BasicUpsellModal";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 const U = "https://centraldosmoldes.shop/uploads/";
 
@@ -11,6 +12,14 @@ const CHECKOUT_BASICO = "https://pay.cakto.com.br/32u4n8y_1028963";
 const CHECKOUT_BASICO_UPSELL = "https://pay.cakto.com.br/547zr6h_1030011";
 // Checkout do upsell de convites digitais (R$27 + R$19,90)
 const CHECKOUT_CONVITES_UPSELL = "https://pay.cakto.com.br/zq995c3_1030030";
+
+const CHECKOUT_VALUES: Record<string, number> = {
+  [CHECKOUT_PREMIUM]: 27,
+  [CHECKOUT_BASICO]: 10,
+  [CHECKOUT_BASICO_UPSELL]: 19.9,
+  [CHECKOUT_CONVITES_UPSELL]: 46.9,
+};
+
 
 
 const avatars = [
@@ -269,10 +278,19 @@ function Index() {
     setBasicUpsellOpen(false);
     if (url.startsWith("#")) {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = url;
+      return;
     }
+    // Clique real que leva ao checkout → InitiateCheckout (browser + CAPI, mesmo event_id)
+    const value = CHECKOUT_VALUES[url];
+    const tracked = trackMetaEvent(
+      "InitiateCheckout",
+      value ? { value, currency: "BRL" } : undefined,
+    );
+    void Promise.race([tracked, new Promise((r) => setTimeout(r, 300))]).then(() => {
+      window.location.href = url;
+    });
   };
+
 
 
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
