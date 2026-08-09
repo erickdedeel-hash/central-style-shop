@@ -269,10 +269,19 @@ function Index() {
     setBasicUpsellOpen(false);
     if (url.startsWith("#")) {
       document.querySelector(url)?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = url;
+      return;
     }
+    // Clique real que leva ao checkout → InitiateCheckout (browser + CAPI, mesmo event_id)
+    const value = CHECKOUT_VALUES[url];
+    const tracked = trackMetaEvent(
+      "InitiateCheckout",
+      value ? { value, currency: "BRL" } : undefined,
+    );
+    void Promise.race([tracked, new Promise((r) => setTimeout(r, 300))]).then(() => {
+      window.location.href = url;
+    });
   };
+
 
 
   const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
