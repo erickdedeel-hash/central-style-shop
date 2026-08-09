@@ -9,8 +9,8 @@ const U = "https://centraldosmoldes.shop/uploads/";
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/6rbe8at_1029014";
 const CHECKOUT_BASICO = "https://pay.cakto.com.br/32u4n8y_1028963";
 const CHECKOUT_BASICO_UPSELL = "https://pay.cakto.com.br/547zr6h_1030011";
-// Cole aqui o link do checkout do upsell de convites digitais (R$27 + R$19,90)
-const CHECKOUT_CONVITES_UPSELL = "";
+// Checkout do upsell de convites digitais (R$27 + R$19,90)
+const CHECKOUT_CONVITES_UPSELL = "https://pay.cakto.com.br/zq995c3_1030030";
 
 
 const avatars = [
