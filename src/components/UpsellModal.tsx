@@ -38,7 +38,7 @@ export function UpsellModal({ open, onAccept, onDecline, onClose }: Props) {
       style={{ background: "rgba(20,10,40,0.72)" }}
     >
       <div
-        className="relative w-full max-w-[352px] overflow-y-auto rounded-[22px] bg-white text-center"
+        className="relative w-[calc(100%-24px)] max-w-[390px] overflow-y-auto rounded-[22px] bg-white text-center"
         style={{
           maxHeight: "92vh",
           boxShadow:
