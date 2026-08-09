@@ -684,10 +684,10 @@ function Index() {
         open={basicUpsellOpen}
         onAccept={() => {
           void fireConfetti();
-          setTimeout(() => go("https://pay.cakto.com.br/6rbe8at_1029014"), 450);
+          setTimeout(() => go(CHECKOUT_PREMIUM), 450);
         }}
-        onDecline={() => go("https://pay.cakto.com.br/32u4n8y_1028963")}
-        onClose={() => go("https://pay.cakto.com.br/32u4n8y_1028963")}
+        onDecline={() => go(CHECKOUT_BASICO)}
+        onClose={() => go(CHECKOUT_BASICO)}
       />
 
 
