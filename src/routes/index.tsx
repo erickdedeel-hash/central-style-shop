@@ -5,11 +5,11 @@ import { BasicUpsellModal } from "@/components/BasicUpsellModal";
 
 const U = "https://centraldosmoldes.shop/uploads/";
 
-// Substitua pelos links reais de checkout.
-const CHECKOUT_27 = "#planos";
-const CHECKOUT_27_MAIS_UPSELL = "#planos";
-const CHECKOUT_10 = "#planos";
-const CHECKOUT_10_MAIS_UPSELL = "#planos";
+// Checkouts configurados
+const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/6rbe8at_1029014";
+const CHECKOUT_BASICO = "https://pay.cakto.com.br/32u4n8y_1028963";
+// Cole aqui o link do checkout do upsell de convites digitais (R$27 + R$19,90)
+const CHECKOUT_CONVITES_UPSELL = "";
 
 
 const avatars = [
