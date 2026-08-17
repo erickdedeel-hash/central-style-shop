@@ -4,7 +4,7 @@ import { UpsellModal } from "@/components/UpsellModal";
 import { BasicUpsellModal } from "@/components/BasicUpsellModal";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
-const U = "https://centraldosmoldes.shop/uploads/";
+const U = "/uploads/";
 
 // Checkouts configurados
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/6rbe8at_1029014";
@@ -170,8 +170,14 @@ export const Route = createFileRoute("/")({
         content:
           "Biblioteca com +3.000 moldes, +1.000 arquivos editáveis no Canva e +600 kits festa completos. Edite pelo celular.",
       },
-      { property: "og:image", content: `${U}dd08dece71c0b597d58afba021f9d362.jpg` },
-      { name: "twitter:image", content: `${U}dd08dece71c0b597d58afba021f9d362.jpg` },
+      {
+        property: "og:image",
+        content: "https://moldesdajuh.store/uploads/dd08dece71c0b597d58afba021f9d362.jpg",
+      },
+      {
+        name: "twitter:image",
+        content: "https://moldesdajuh.store/uploads/dd08dece71c0b597d58afba021f9d362.jpg",
+      },
     ],
   }),
   component: Index,
