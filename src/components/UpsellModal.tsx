@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const IMG = "https://centraldosmoldes.shop/uploads/convites-digitais-exemplo.jpg";
+const IMG = "/uploads/convites-digitais-exemplo.jpg";
 
 type Props = {
   open: boolean;

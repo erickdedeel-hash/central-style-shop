@@ -4,7 +4,7 @@ import { UpsellModal } from "@/components/UpsellModal";
 import { BasicUpsellModal } from "@/components/BasicUpsellModal";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
-const U = "https://centraldosmoldes.shop/uploads/";
+const U = "/uploads/";
 
 // Checkouts configurados
 const CHECKOUT_PREMIUM = "https://pay.cakto.com.br/6rbe8at_1029014";

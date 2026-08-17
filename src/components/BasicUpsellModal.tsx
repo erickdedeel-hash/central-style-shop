@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const U = "https://centraldosmoldes.shop/uploads/";
+const U = "/uploads/";
 
 const thumbs = [
   `${U}dd08dece71c0b597d58afba021f9d362.jpg`,
