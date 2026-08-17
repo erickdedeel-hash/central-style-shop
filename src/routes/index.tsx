@@ -170,8 +170,14 @@ export const Route = createFileRoute("/")({
         content:
           "Biblioteca com +3.000 moldes, +1.000 arquivos editáveis no Canva e +600 kits festa completos. Edite pelo celular.",
       },
-      { property: "og:image", content: `${U}dd08dece71c0b597d58afba021f9d362.jpg` },
-      { name: "twitter:image", content: `${U}dd08dece71c0b597d58afba021f9d362.jpg` },
+      {
+        property: "og:image",
+        content: "https://moldesdajuh.store/uploads/dd08dece71c0b597d58afba021f9d362.jpg",
+      },
+      {
+        name: "twitter:image",
+        content: "https://moldesdajuh.store/uploads/dd08dece71c0b597d58afba021f9d362.jpg",
+      },
     ],
   }),
   component: Index,
