@@ -636,7 +636,7 @@ function Index() {
               </div>
               <Cta
                 className="mt-6 w-full"
-                href="https://pay.cakto.com.br/6rbe8at_1029014"
+                href={CHECKOUT_PREMIUM}
                 onClick={startUpsell}
               >
                 QUERO ACESSAR AGORA →
