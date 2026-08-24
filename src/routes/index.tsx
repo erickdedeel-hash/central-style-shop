@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { UpsellModal } from "@/components/UpsellModal";
 import { BasicUpsellModal } from "@/components/BasicUpsellModal";
+import { ReviewsCarousel, reviews } from "@/components/ReviewsCarousel";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 
 const U = "/uploads/";
