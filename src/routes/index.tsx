@@ -232,7 +232,15 @@ function Index() {
 
 
   useEffect(() => {
-    const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
+    const t = setInterval(() => {
+      setSeconds((s) => {
+        if (s <= 1) {
+          clearInterval(t);
+          return 0;
+        }
+        return s - 1;
+      });
+    }, 1000);
     return () => clearInterval(t);
   }, []);
 
@@ -265,14 +273,10 @@ function Index() {
     requestAnimationFrame(tick);
   }, []);
 
-  const startUpsell = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      void fireConfetti();
-      setUpsellOpen(true);
-    },
-    [fireConfetti],
-  );
+  const startUpsell = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setUpsellOpen(true);
+  }, []);
 
   const startBasicUpsell = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
@@ -472,7 +476,7 @@ function Index() {
       <section className="px-4 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center text-3xl font-black sm:text-4xl">Para quem é</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {paraQuem.map((p) => (
               <div
                 key={p.texto}
@@ -570,7 +574,7 @@ function Index() {
                 <div className="text-4xl font-black text-primary">R$10</div>
               </div>
               <a
-                href="https://pay.cakto.com.br/32u4n8y_1028963"
+                href={CHECKOUT_BASICO}
                 onClick={startBasicUpsell}
                 className="mt-6 block rounded-full border-2 border-primary px-6 py-3 text-center text-sm font-extrabold text-primary transition hover:bg-primary hover:text-primary-foreground"
               >
@@ -632,7 +636,7 @@ function Index() {
               </div>
               <Cta
                 className="mt-6 w-full"
-                href="https://pay.cakto.com.br/6rbe8at_1029014"
+                href={CHECKOUT_PREMIUM}
                 onClick={startUpsell}
               >
                 QUERO ACESSAR AGORA →
@@ -707,7 +711,15 @@ function Index() {
             ))}
           </div>
           <div className="mt-8">
-            <Cta>🛒 SIM, QUERO O KIT COMPLETO</Cta>
+            <Cta
+              href={CHECKOUT_BASICO_UPSELL}
+              onClick={(e) => {
+                e.preventDefault();
+                go(CHECKOUT_BASICO_UPSELL);
+              }}
+            >
+              🛒 SIM, QUERO O KIT COMPLETO
+            </Cta>
           </div>
         </div>
       </section>
