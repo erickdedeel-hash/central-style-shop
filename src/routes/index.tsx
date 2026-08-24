@@ -340,8 +340,14 @@ function Index() {
           </p>
         </div>
 
-        <div className="mt-8">
-          <Marquee />
+        <div className="mt-10">
+          <h2 className="text-xl font-black text-balance sm:text-3xl">
+            Veja o que algumas das nossas clientes estão dizendo 💬
+          </h2>
+          <p className="mx-auto mt-2 max-w-xl text-sm font-semibold text-balance text-muted-foreground sm:text-base">
+            Experiências reais de pessoas que começaram com nossos moldes.
+          </p>
+          <div className="mt-6">{reviews.length > 0 ? <ReviewsCarousel /> : <Marquee />}</div>
         </div>
 
         <div className="mt-8 px-2">
