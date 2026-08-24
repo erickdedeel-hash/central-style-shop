@@ -232,10 +232,17 @@ function Index() {
 
 
   useEffect(() => {
-    if (seconds <= 0) return;
-    const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
+    const t = setInterval(() => {
+      setSeconds((s) => {
+        if (s <= 1) {
+          clearInterval(t);
+          return 0;
+        }
+        return s - 1;
+      });
+    }, 1000);
     return () => clearInterval(t);
-  }, [seconds > 0]);
+  }, []);
 
   const fireConfetti = useCallback(async () => {
     const confetti = (await import("canvas-confetti")).default;
