@@ -43,9 +43,9 @@ export function ReviewsCarousel() {
       const next = (i + reviews.length) % reviews.length;
       setIndex(next);
       scrollToIndex(next);
-      if (pause) setPaused(true);
+      if (pause) pauseThenResume();
     },
-    [scrollToIndex],
+    [scrollToIndex, pauseThenResume],
   );
 
   // Rotação automática lenta, pausada em qualquer interação do usuário
