@@ -476,7 +476,7 @@ function Index() {
       <section className="px-4 py-14">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center text-3xl font-black sm:text-4xl">Para quem é</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {paraQuem.map((p) => (
               <div
                 key={p.texto}
