@@ -357,12 +357,8 @@ function Index() {
 
         <div className="mt-8 px-2">
           <Cta
-            href={CHECKOUT_PREMIUM}
+            href="#plano-premium"
             className="w-full max-w-md text-sm leading-tight sm:w-auto sm:text-lg"
-            onClick={(e) => {
-              e.preventDefault();
-              go(CHECKOUT_PREMIUM);
-            }}
           >
             QUERO ACESSAR OS +3.000 MOLDES POR R$27
           </Cta>
@@ -584,7 +580,7 @@ function Index() {
             </div>
 
             {/* Premium */}
-            <div className="relative rounded-3xl border-2 border-primary bg-card p-7 shadow-xl">
+            <div id="plano-premium" className="relative rounded-3xl border-2 border-primary bg-card p-7 shadow-xl">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-extrabold whitespace-nowrap text-primary-foreground">
                 ⭐ MAIS ESCOLHIDO ⭐
               </div>
