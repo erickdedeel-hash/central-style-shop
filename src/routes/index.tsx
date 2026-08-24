@@ -574,7 +574,7 @@ function Index() {
                 <div className="text-4xl font-black text-primary">R$10</div>
               </div>
               <a
-                href="https://pay.cakto.com.br/32u4n8y_1028963"
+                href={CHECKOUT_BASICO}
                 onClick={startBasicUpsell}
                 className="mt-6 block rounded-full border-2 border-primary px-6 py-3 text-center text-sm font-extrabold text-primary transition hover:bg-primary hover:text-primary-foreground"
               >
