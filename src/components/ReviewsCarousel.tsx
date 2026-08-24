@@ -85,8 +85,9 @@ export function ReviewsCarousel() {
       className="relative w-full"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onTouchStart={() => setPaused(true)}
-      onPointerDown={() => setPaused(true)}
+      onTouchStart={() => pauseThenResume()}
+      onTouchEnd={() => pauseThenResume()}
+      onPointerDown={() => pauseThenResume()}
     >
       <div
         ref={trackRef}
