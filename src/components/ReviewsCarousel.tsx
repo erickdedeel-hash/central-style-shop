@@ -11,8 +11,24 @@ const AUTOPLAY_MS = 6000;
 
 export function ReviewsCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const resumeRef = useRef<number | null>(null);
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+
+  // Pausa na interação e retoma sozinha depois — inclusive no toque (mobile),
+  // onde não existe mouseleave para desfazer a pausa.
+  const pauseThenResume = useCallback((delay = 9000) => {
+    setPaused(true);
+    if (resumeRef.current) window.clearTimeout(resumeRef.current);
+    resumeRef.current = window.setTimeout(() => setPaused(false), delay);
+  }, []);
+
+  useEffect(
+    () => () => {
+      if (resumeRef.current) window.clearTimeout(resumeRef.current);
+    },
+    [],
+  );
 
   const scrollToIndex = useCallback((i: number) => {
     const track = trackRef.current;
