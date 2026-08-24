@@ -273,14 +273,10 @@ function Index() {
     requestAnimationFrame(tick);
   }, []);
 
-  const startUpsell = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      void fireConfetti();
-      setUpsellOpen(true);
-    },
-    [fireConfetti],
-  );
+  const startUpsell = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    setUpsellOpen(true);
+  }, []);
 
   const startBasicUpsell = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
