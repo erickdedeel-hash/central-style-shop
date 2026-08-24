@@ -97,7 +97,6 @@ const paraQuem = [
   { emoji: "💰", texto: "Quero ganhar dinheiro." },
   { emoji: "🎈", texto: "Quer economizar nas festas." },
   { emoji: "📦", texto: "Já trabalha com papelaria." },
-  { emoji: "🌱", texto: "Está começando do zero." },
 ];
 
 const conquistas = [
