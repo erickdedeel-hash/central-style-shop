@@ -711,7 +711,15 @@ function Index() {
             ))}
           </div>
           <div className="mt-8">
-            <Cta>🛒 SIM, QUERO O KIT COMPLETO</Cta>
+            <Cta
+              href={CHECKOUT_BASICO_UPSELL}
+              onClick={(e) => {
+                e.preventDefault();
+                go(CHECKOUT_BASICO_UPSELL);
+              }}
+            >
+              🛒 SIM, QUERO O KIT COMPLETO
+            </Cta>
           </div>
         </div>
       </section>
