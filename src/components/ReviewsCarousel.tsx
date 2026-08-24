@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import review1 from "@/assets/review-1.jpg.asset.json";
+import review2 from "@/assets/review-2.jpg.asset.json";
+import review3 from "@/assets/review-3.jpg.asset.json";
+import review4 from "@/assets/review-4.jpg.asset.json";
 
 /**
- * Prints reais de reviews das clientes.
- * Coloque os arquivos em public/uploads/reviews/ e liste aqui na ordem desejada.
- * Nenhum depoimento é inventado: se a lista estiver vazia, o carrossel não é renderizado.
+ * Prints reais de reviews das clientes (conversas enviadas pela cliente).
  */
-export const reviews: string[] = [];
+export const reviews: string[] = [review1.url, review2.url, review3.url, review4.url];
 
 const AUTOPLAY_MS = 6000;
 
