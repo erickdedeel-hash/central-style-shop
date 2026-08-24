@@ -376,6 +376,105 @@ function Index() {
 
       </section>
 
+      {/* PLANOS */}
+      <section id="planos" className="px-4 py-14">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-center text-3xl font-black sm:text-4xl">
+            Escolha como você quer começar
+          </h2>
+          <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
+            {/* Básico */}
+            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
+              <h3 className="text-xl font-extrabold">Kit Papelaria Básica</h3>
+              <ul className="mt-5 space-y-2 text-sm font-semibold">
+                <li>✔ Mais de 500 moldes prontos</li>
+                <li>✔ +250 arquivos editáveis no Canva</li>
+                <li>✔ +300 kits festa completos</li>
+                <li>✔ Acesso imediato</li>
+                <li className="text-muted-foreground">✗ Sem bônus incluso</li>
+                <li className="text-muted-foreground">✗ Sem passo a passo incluso</li>
+              </ul>
+              <div className="mt-6">
+                <div className="text-sm font-bold text-muted-foreground line-through">R$37</div>
+                <div className="text-xs font-extrabold tracking-widest text-muted-foreground">
+                  POR APENAS
+                </div>
+                <div className="text-4xl font-black text-primary">R$10</div>
+              </div>
+              <a
+                href={CHECKOUT_BASICO}
+                onClick={startBasicUpsell}
+                className="mt-6 block rounded-full border-2 border-primary px-6 py-3 text-center text-sm font-extrabold text-primary transition hover:bg-primary hover:text-primary-foreground"
+              >
+                QUERO COMEÇAR AGORA
+              </a>
+
+            </div>
+
+            {/* Premium */}
+            <div id="plano-premium" className="relative rounded-3xl border-2 border-primary bg-card p-7 shadow-xl">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-extrabold whitespace-nowrap text-primary-foreground">
+                ⭐ MAIS ESCOLHIDO ⭐
+              </div>
+              <h3 className="text-xl font-extrabold">Papelaria Premium VIP</h3>
+              <p className="mt-1 text-sm font-bold text-muted-foreground">
+                Tudo do plano básico + 4 bônus
+              </p>
+              <div className="mt-4 grid grid-cols-3 gap-2">
+                {kitImages.map((src) => (
+                  <img
+                    key={src}
+                    src={src}
+                    alt="Kit completo de papelaria personalizada"
+                    loading="lazy"
+                    className="aspect-square w-full rounded-lg object-cover"
+                  />
+                ))}
+              </div>
+              <ul className="mt-5 space-y-2 text-sm font-semibold">
+                <li>✔ 3.000 moldes prontos</li>
+                <li>✔ Arquivos editáveis no Canva</li>
+                <li>✔ Guia: Como Vender Papelaria Personalizada</li>
+                <li>✔ Kits festa completos</li>
+                <li>
+                  ✔ Pacote de Datas Comemorativas
+                  <span className="block text-xs font-normal text-muted-foreground">
+                    Natal, Páscoa, Dia das Mães, Dia dos Pais, Chá Revelação, Mesversário e muito
+                    mais.
+                  </span>
+                </li>
+              </ul>
+              <div className="mt-5 rounded-2xl bg-secondary p-4">
+                <div className="text-xs font-extrabold tracking-widest text-primary">
+                  ★ BÔNUS EXCLUSIVOS
+                </div>
+                <ul className="mt-2 space-y-1 text-sm font-semibold">
+                  <li>★ Bônus 1 — Aula Completa de Canva pelo Celular</li>
+                  <li>★ Bônus 2 — Guia Completo de Impressão</li>
+                  <li>★ Bônus 3 — Checklist dos Primeiros Pedidos</li>
+                  <li>★ Bônus 4 — Pack de Artes para Divulgação</li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <div className="text-sm font-bold text-muted-foreground line-through">R$67</div>
+                <div className="text-xs font-extrabold tracking-widest text-muted-foreground">
+                  POR APENAS
+                </div>
+                <div className="text-5xl font-black text-primary">R$27</div>
+              </div>
+              <Cta
+                className="mt-6 w-full"
+                href={CHECKOUT_PREMIUM}
+                onClick={startUpsell}
+              >
+                QUERO ACESSAR AGORA →
+              </Cta>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* BIBLIOTECA */}
       <section className="bg-secondary/40 px-4 py-14">
         <div className="mx-auto max-w-5xl text-center">
@@ -544,104 +643,6 @@ function Index() {
         </div>
       </section>
 
-      {/* PLANOS */}
-      <section id="planos" className="px-4 py-14">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="text-center text-3xl font-black sm:text-4xl">
-            Escolha como você quer começar
-          </h2>
-          <div className="mt-10 grid items-start gap-6 lg:grid-cols-2">
-            {/* Básico */}
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="text-xl font-extrabold">Kit Papelaria Básica</h3>
-              <ul className="mt-5 space-y-2 text-sm font-semibold">
-                <li>✔ Mais de 500 moldes prontos</li>
-                <li>✔ +250 arquivos editáveis no Canva</li>
-                <li>✔ +300 kits festa completos</li>
-                <li>✔ Acesso imediato</li>
-                <li className="text-muted-foreground">✗ Sem bônus incluso</li>
-                <li className="text-muted-foreground">✗ Sem passo a passo incluso</li>
-              </ul>
-              <div className="mt-6">
-                <div className="text-sm font-bold text-muted-foreground line-through">R$37</div>
-                <div className="text-xs font-extrabold tracking-widest text-muted-foreground">
-                  POR APENAS
-                </div>
-                <div className="text-4xl font-black text-primary">R$10</div>
-              </div>
-              <a
-                href={CHECKOUT_BASICO}
-                onClick={startBasicUpsell}
-                className="mt-6 block rounded-full border-2 border-primary px-6 py-3 text-center text-sm font-extrabold text-primary transition hover:bg-primary hover:text-primary-foreground"
-              >
-                QUERO COMEÇAR AGORA
-              </a>
-
-            </div>
-
-            {/* Premium */}
-            <div id="plano-premium" className="relative rounded-3xl border-2 border-primary bg-card p-7 shadow-xl">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-extrabold whitespace-nowrap text-primary-foreground">
-                ⭐ MAIS ESCOLHIDO ⭐
-              </div>
-              <h3 className="text-xl font-extrabold">Papelaria Premium VIP</h3>
-              <p className="mt-1 text-sm font-bold text-muted-foreground">
-                Tudo do plano básico + 4 bônus
-              </p>
-              <div className="mt-4 grid grid-cols-3 gap-2">
-                {kitImages.map((src) => (
-                  <img
-                    key={src}
-                    src={src}
-                    alt="Kit completo de papelaria personalizada"
-                    loading="lazy"
-                    className="aspect-square w-full rounded-lg object-cover"
-                  />
-                ))}
-              </div>
-              <ul className="mt-5 space-y-2 text-sm font-semibold">
-                <li>✔ 3.000 moldes prontos</li>
-                <li>✔ Arquivos editáveis no Canva</li>
-                <li>✔ Guia: Como Vender Papelaria Personalizada</li>
-                <li>✔ Kits festa completos</li>
-                <li>
-                  ✔ Pacote de Datas Comemorativas
-                  <span className="block text-xs font-normal text-muted-foreground">
-                    Natal, Páscoa, Dia das Mães, Dia dos Pais, Chá Revelação, Mesversário e muito
-                    mais.
-                  </span>
-                </li>
-              </ul>
-              <div className="mt-5 rounded-2xl bg-secondary p-4">
-                <div className="text-xs font-extrabold tracking-widest text-primary">
-                  ★ BÔNUS EXCLUSIVOS
-                </div>
-                <ul className="mt-2 space-y-1 text-sm font-semibold">
-                  <li>★ Bônus 1 — Aula Completa de Canva pelo Celular</li>
-                  <li>★ Bônus 2 — Guia Completo de Impressão</li>
-                  <li>★ Bônus 3 — Checklist dos Primeiros Pedidos</li>
-                  <li>★ Bônus 4 — Pack de Artes para Divulgação</li>
-                </ul>
-              </div>
-              <div className="mt-6">
-                <div className="text-sm font-bold text-muted-foreground line-through">R$67</div>
-                <div className="text-xs font-extrabold tracking-widest text-muted-foreground">
-                  POR APENAS
-                </div>
-                <div className="text-5xl font-black text-primary">R$27</div>
-              </div>
-              <Cta
-                className="mt-6 w-full"
-                href={CHECKOUT_PREMIUM}
-                onClick={startUpsell}
-              >
-                QUERO ACESSAR AGORA →
-              </Cta>
-
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* GARANTIA */}
       <section className="bg-secondary/40 px-4 py-14">
