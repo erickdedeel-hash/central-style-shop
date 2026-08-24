@@ -328,14 +328,15 @@ function Index() {
             </div>
           </div>
 
-          <h1 className="mt-6 text-4xl leading-[1.05] font-black tracking-tight sm:text-5xl md:text-6xl">
-            Você <span className="text-primary">nunca mais</span> vai precisar criar uma{" "}
-            <span className="text-accent">arte do zero</span> nem perder tempo procurando temas.
+          <h1 className="mt-6 text-[2rem] leading-[1.12] font-black tracking-tight text-balance sm:text-5xl sm:leading-[1.08] md:text-6xl">
+            Transforme seu celular em uma{" "}
+            <span className="text-primary">ferramenta de renda extra</span> com{" "}
+            <span className="text-accent">+3.000 moldes</span> prontos para vender
           </h1>
 
-          <p className="mt-6 max-w-xl text-base font-bold text-muted-foreground sm:text-lg">
-            Tenha acesso a <span className="text-foreground">mais de 3.000 moldes</span> e kits de
-            festa prontos para editar, imprimir e montar em poucos minutos
+          <p className="mt-6 max-w-xl text-base font-bold text-balance text-muted-foreground sm:text-lg">
+            Escolha o tema, personalize pelo celular no Canva, imprima e crie produtos para oferecer
+            aos seus clientes — mesmo que você esteja começando agora e não saiba criar artes.
           </p>
         </div>
 
@@ -343,15 +344,29 @@ function Index() {
           <Marquee />
         </div>
 
-        <div className="mt-8">
-          <Cta>QUERO ACESSAR AGORA →</Cta>
+        <div className="mt-8 px-2">
+          <Cta
+            href={CHECKOUT_PREMIUM}
+            className="w-full max-w-md text-sm leading-tight sm:w-auto sm:text-lg"
+            onClick={(e) => {
+              e.preventDefault();
+              go(CHECKOUT_PREMIUM);
+            }}
+          >
+            QUERO ACESSAR OS +3.000 MOLDES POR R$27
+          </Cta>
         </div>
 
         <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-bold text-muted-foreground">
-          <span>✔ Acesso imediato</span>
-          <span>✔ Edita pelo celular</span>
-          <span>✔ Garantia de 7 dias</span>
+          <span>✓ Acesso imediato</span>
+          <span>✓ Editável pelo celular</span>
+          <span>✓ Garantia de 7 dias</span>
         </div>
+
+        <p className="mx-auto mt-3 max-w-md text-xs text-muted-foreground">
+          Produto digital para criação de personalizados. Nenhum material físico será enviado.
+        </p>
+
       </section>
 
       {/* BIBLIOTECA */}
