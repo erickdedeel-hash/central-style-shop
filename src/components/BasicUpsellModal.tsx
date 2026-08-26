@@ -35,27 +35,14 @@ export function BasicUpsellModal({ open, onAccept, onDecline, onClose }: Props) 
   useEffect(() => {
     if (!open) return;
     setSeconds(300);
-    const t = setInterval(() => {
-      setSeconds((s) => {
-        if (s <= 1) {
-          clearInterval(t);
-          return 0;
-        }
-        return s - 1;
-      });
-    }, 1000);
+    const t = setInterval(() => setSeconds((s) => (s > 0 ? s - 1 : 0)), 1000);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKeyDown);
     return () => {
       clearInterval(t);
-      window.removeEventListener("keydown", onKeyDown);
       document.body.style.overflow = prev;
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open) return null;
 
