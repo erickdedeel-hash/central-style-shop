@@ -186,7 +186,7 @@ export const Route = createFileRoute("/")({
 function Marquee() {
   const loop = [...gallery, ...gallery];
   return (
-    <div className="relative mx-auto w-full max-w-lg overflow-hidden py-2">
+    <div className="relative mx-auto w-full max-w-[480px] overflow-hidden py-2">
       <div className="flex w-max animate-marquee gap-3">
         {loop.map((src, i) => (
           <img
@@ -194,7 +194,7 @@ function Marquee() {
             src={src}
             alt="Molde de festa personalizada"
             loading="lazy"
-            className="h-56 w-44 flex-none rounded-xl object-cover shadow-md sm:h-64 sm:w-52"
+            className="h-60 w-[152px] flex-none rounded-xl object-cover shadow-md"
           />
         ))}
       </div>
