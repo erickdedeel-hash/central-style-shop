@@ -356,28 +356,31 @@ function Index() {
       </section>
 
       {/* BIBLIOTECA */}
-      <section className="bg-secondary/40 px-4 py-14">
-        <div className="mx-auto max-w-5xl text-center">
+      <section className="px-4 py-14">
+        <div className="mx-auto max-w-6xl text-center">
           <h2 className="text-3xl font-black sm:text-4xl">Veja uma pequena parte da biblioteca</h2>
           <p className="mt-3 text-muted-foreground">
             Uma pequena amostra de tudo o que está te esperando lá dentro.
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
             {gallery.map((src) => (
-              <img
+              <div
                 key={src}
-                src={src}
-                alt="Kit de festa pronto para imprimir"
-                loading="lazy"
-                className="aspect-[3/4] w-full rounded-xl object-cover shadow"
-              />
+                className="w-[112px] rounded-lg bg-card p-1 shadow-sm ring-1 ring-border/60"
+              >
+                <img
+                  src={src}
+                  alt="Kit de festa pronto para imprimir"
+                  loading="lazy"
+                  className="h-[110px] w-full rounded-md object-cover"
+                />
+              </div>
             ))}
           </div>
-          <div className="mt-6 inline-block rounded-full bg-primary px-5 py-2 text-sm font-extrabold text-primary-foreground">
-            +500 temas variáveis
-          </div>
+          <div className="mt-8 text-sm font-extrabold text-primary">+500 temas variáveis</div>
         </div>
       </section>
+
 
       {/* DORES */}
       <section className="px-4 py-14">
