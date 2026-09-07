@@ -186,7 +186,7 @@ export const Route = createFileRoute("/")({
 function Marquee() {
   const loop = [...gallery, ...gallery];
   return (
-    <div className="relative w-full overflow-hidden py-2">
+    <div className="relative mx-auto w-full max-w-lg overflow-hidden py-2">
       <div className="flex w-max animate-marquee gap-3">
         {loop.map((src, i) => (
           <img
